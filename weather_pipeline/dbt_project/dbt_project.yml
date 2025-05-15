@@ -1,0 +1,24 @@
+name: 'weather_project'
+version: '1.0.0'
+config-version: 2
+
+profile: 'prod'
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+docs-paths: ["docs"]
+
+models:
+  weather_project:
+    +materialized: view
+    staging:
+      +schema: staging
+    marts:
+      +schema: marts

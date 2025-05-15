@@ -1,0 +1,88 @@
+version: 2
+
+models:
+  - name: weather_current_metrics
+    description: "Contains current weather measurements extracted from the API."
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - date_time
+            - extracted_at
+    columns:
+      - name: date_time
+        description: "Timestamp of the weather observation"
+        tests:
+          - not_null
+      - name: extracted_at
+        description: "Timestamp when the data was extracted from the source"
+        tests:
+          - not_null
+      - name: temperature
+        description: "Current temperature in Celsius"
+        tests:
+          - not_null
+      - name: humidity
+        description: "Current humidity percentage"
+        tests:
+          - not_null
+      - name: wind_speed
+        description: "Current wind speed in km/h"
+        tests:
+          - not_null
+      - name: sky_condition
+        description: "Textual description of the sky condition"
+        tests:
+          - not_null
+
+  - name: weather_daily_summary
+    description: "Daily aggregated weather summary including min/max temperatures and conditions."
+    columns:
+      - name: date
+        description: "Date of the daily summary"
+        tests:
+          - not_null
+          - unique
+      - name: avg_max_temp
+        description: "Average of the maximum daily temperature"
+        tests:
+          - not_null
+      - name: avg_min_temp
+        description: "Average of the minimum daily temperature"
+        tests:
+          - not_null
+      - name: avg_precipitation_prob
+        description: "Average probability of precipitation for the day"
+        tests:
+          - not_null
+      - name: highest_temp
+        description: "Highest temperature recorded during the day"
+        tests:
+          - not_null
+      - name: lowest_temp
+        description: "Lowest temperature recorded during the day"
+        tests:
+          - not_null
+      - name: last_updated
+        description: "Timestamp of the last update for the daily summary"
+        tests:
+          - not_null
+      - name: max_precipitation_prob
+        description: "Maximum probability of precipitation recorded"
+        tests:
+          - not_null
+      - name: max_uv_index
+        description: "Maximum UV index recorded during the day"
+        tests:
+          - not_null
+      - name: weather_conditions
+        description: "General weather conditions for the day"
+        tests:
+          - not_null
+
+  - name: weather_extremes
+    description: "Extreme weather metrics used to identify unusual patterns"
+    columns:
+      - name: highest_uv_day
+        description: "Day with the highest UV index observed"
+        tests:
+          - not_null

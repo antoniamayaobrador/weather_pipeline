@@ -1,0 +1,6 @@
+locations:
+- build:
+    directory: ./dbt_weather_project
+  code_source:
+    module_name: dbt_weather_project.definitions
+  location_name: dbt_weather_project

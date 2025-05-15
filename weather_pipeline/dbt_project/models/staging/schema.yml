@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: stg_weather_current
+    description: "Staging model for current weather data."
+    columns:
+      - name: date_time
+        description: "Timestamp of the current weather observation (local time)."
+        tests: [not_null]
+      - name: temperature
+        description: "Current observed temperature in degrees Celsius."
+        tests: [not_null]
+      - name: humidity
+        description: "Current observed humidity percentage."
+        tests: [not_null]
+      - name: wind_speed
+        description: "Current observed wind speed (km/h or m/s depending on source)."
+        tests: [not_null]
+      - name: sky_condition
+        description: "Current observed sky condition (e.g. clear, cloudy, etc.)."
+        tests: [not_null]
+      - name: extracted_at
+        description: "Timestamp when this record was extracted from the source."
+        tests: [not_null]
+
+  - name: stg_weather_forecast_daily
+    description: "Staging model for daily weather forecast."
+    columns:
+      - name: forecast_date
+        description: "Forecasted date for the daily weather prediction (YYYY-MM-DD)."
+        tests: [not_null]
+      - name: max_temp
+        description: "Forecasted maximum temperature for the day (°C)."
+        tests: [not_null]
+      - name: min_temp
+        description: "Forecasted minimum temperature for the day (°C)."
+        tests: [not_null]
+      - name: max_humidity
+        description: "Forecasted maximum humidity percentage for the day."
+        tests: [not_null]
+      - name: min_humidity
+        description: "Forecasted minimum humidity percentage for the day."
+        tests: [not_null]
+      - name: precipitation_probability
+        description: "Forecasted probability of precipitation for the day (0-100)."
+        tests: [not_null]
+      - name: sky_condition
+        description: "Forecasted sky condition for the day (e.g. clear, cloudy, etc.)."
+        tests: [not_null]
+      - name: uv_index
+        description: "Forecasted maximum UV index for the day."
+        tests: [not_null]
+      - name: extracted_at
+        description: "Timestamp when this forecast record was extracted from the source."
+        tests: [not_null]
+
+  - name: stg_weather_forecast_hourly
+    description: "Staging model for hourly weather forecast."
+    columns:
+      - name: forecast_date
+        description: "Forecasted date for the hourly weather prediction (YYYY-MM-DD)."
+        tests: [not_null]
+      - name: hour_index
+        description: "Index of the forecasted hour (e.g. 0 for midnight, 6 for 6am, etc.)."
+        tests: [not_null]
+      - name: time_of_day
+        description: "Time of day for the forecasted hour (e.g. '06:00', '12:00')."
+        tests: [not_null]
+      - name: temperature
+        description: "Forecasted temperature for this hour (°C)."
+        tests: [not_null]
+      - name: humidity
+        description: "Forecasted humidity percentage for this hour."
+        tests: [not_null]
+      - name: sky_condition
+        description: "Forecasted sky condition for this hour (e.g. clear, cloudy, etc.)."
+        tests: [not_null]
+      - name: wind_direction
+        description: "Forecasted wind direction for this hour (e.g. N, NE, SW)."
+        tests: [not_null]
+      - name: wind_speed
+        description: "Forecasted wind speed for this hour (km/h or m/s depending on source)."
+        tests: [not_null]
+      - name: extracted_at
+        description: "Timestamp when this forecast record was extracted from the source."
+        tests: [not_null]
