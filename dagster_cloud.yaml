@@ -1,0 +1,4 @@
+locations:
+- code_source:
+    module_name: weather_pipeline.definitions
+  location_name: weather_pipeline
