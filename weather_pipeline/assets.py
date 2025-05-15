@@ -70,57 +70,28 @@ def prepare_dbt_project_dir(context):
     return str(dbt_path.resolve())
 
 
-@op
-def run_dbt(context, dbt_project_dir: str, sync_result: str):
-    # Cargar variables del .env
-    dotenv_path = Path(__file__).parent / ".env"
-    context.log.info(f"[INFO] Looking for .env at: {dotenv_path.resolve()}")
+from dagster_dbt import DbtCliResource
+from dagster import AssetExecutionContext
+from dagster_dbt import DbtCliResource, dbt_assets
 
-    if not dotenv_path.exists():
-        raise Exception(f"[ERROR] .env file not found at {dotenv_path.resolve()}")
+# configure dbt project resource
+dbt_project_dir = Path(__file__).joinpath("../dbt_project").resolve()
+dbt_warehouse_resource = DbtCliResource(project_dir=os.fspath(dbt_project_dir))
 
-    load_dotenv(dotenv_path=dotenv_path)
+# generate manifest
+dbt_manifest_path = (
+    dbt_warehouse_resource.cli(
+        ["--quiet", "parse"],
+        target_path=Path("target"),
+    )
+    .wait()
+    .target_path.joinpath("manifest.json")
+)
 
-    # Comprobar variables necesarias
-    required_vars = [
-        "SNOWFLAKE_ACCOUNT", "SNOWFLAKE_USER", "SNOWFLAKE_PASSWORD",
-        "SNOWFLAKE_DATABASE", "SNOWFLAKE_WAREHOUSE"
-    ]
-    for var in required_vars:
-        val = os.getenv(var)
-        context.log.info(f"[ENV] {var}={val}")
-        if not val:
-            raise Exception(f"[ERROR] Environment variable {var} is not defined in the .env file.")
-
-    profiles_path = Path(dbt_project_dir) / "profiles.yml"
-    if not profiles_path.exists():
-        raise Exception(f"[ERROR] profiles.yml not found at {profiles_path.resolve()}")
-
-    cmd = [
-        "dbt", "build",
-        "--project-dir", dbt_project_dir,
-        "--profile", "prod",
-        "--target", "prod",
-        "--profiles-dir", dbt_project_dir
-    ]
-
-    context.log.info(f"[DBT COMMAND] {' '.join(cmd)}")
-    result = subprocess.run(cmd, capture_output=True, text=True)
-
-    context.log.info("[DBT STDOUT]")
-    context.log.info(result.stdout)
-    context.log.info("[DBT STDERR]")
-    context.log.info(result.stderr)
-
-    if result.returncode != 0:
-        error_log_path = Path(dbt_project_dir) / "dbt_error_log.txt"
-        with open(error_log_path, "w") as f:
-            f.write("STDOUT:\n" + result.stdout)
-            f.write("\n\nSTDERR:\n" + result.stderr)
-
-        context.log.error(f"[DBT ERROR] Full error saved at {error_log_path}")
-        raise Exception("[ERROR] dbt build failed.")
-
+# load manifest to produce asset defintion
+@dbt_assets(manifest=dbt_manifest_path)
+def dbt_warehouse(context: AssetExecutionContext, dbt_warehouse_resource: DbtCliResource):
+    yield from dbt_warehouse_resource.cli(["run"], context=context).stream()
 
 @job
 def airbyte_then_dbt():

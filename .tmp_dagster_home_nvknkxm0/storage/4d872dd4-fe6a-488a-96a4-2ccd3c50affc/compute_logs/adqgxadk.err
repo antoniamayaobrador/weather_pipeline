@@ -1,0 +1,137 @@
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - 13254 - LOGS_CAPTURED - Started capturing logs in process (pid: 13254).
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - 13254 - run_dbt - STEP_START - Started execution of step "run_dbt".
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - Loading file from: /Users/toniamayaobrador/dagster/weather_pipeline/.tmp_dagster_home_nvknkxm0/storage/4d872dd4-fe6a-488a-96a4-2ccd3c50affc/prepare_dbt_project_dir/result using PickledObjectFilesystemIOManager...
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - 13254 - run_dbt - LOADED_INPUT - Loaded input "dbt_project_dir" using input manager "io_manager", from output "result" of step "prepare_dbt_project_dir"
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - Loading file from: /Users/toniamayaobrador/dagster/weather_pipeline/.tmp_dagster_home_nvknkxm0/storage/4d872dd4-fe6a-488a-96a4-2ccd3c50affc/sync_airbyte_connection/result using PickledObjectFilesystemIOManager...
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - 13254 - run_dbt - LOADED_INPUT - Loaded input "sync_result" using input manager "io_manager", from output "result" of step "sync_airbyte_connection"
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - 13254 - run_dbt - STEP_INPUT - Got input "dbt_project_dir" of type "String". (Type check passed).
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - 13254 - run_dbt - STEP_INPUT - Got input "sync_result" of type "String". (Type check passed).
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - [INFO] Looking for .env at: /Users/toniamayaobrador/dagster/weather_pipeline/weather_pipeline/.env
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - [ENV] SNOWFLAKE_ACCOUNT=BGIFSSL-JF59553
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - [ENV] SNOWFLAKE_USER=ANTONIAMAYA
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - [ENV] SNOWFLAKE_PASSWORD=Amaya9922!snow
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - [ENV] SNOWFLAKE_DATABASE=WEATHER
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - [ENV] SNOWFLAKE_WAREHOUSE=COMPUTE_WH
+[32m2025-05-15 14:22:19 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - [DBT COMMAND] dbt build --project-dir /Users/toniamayaobrador/dagster/weather_pipeline/weather_pipeline/dbt_project --profile prod --target prod --profiles-dir /Users/toniamayaobrador/dagster/weather_pipeline/weather_pipeline/dbt_project
+[32m2025-05-15 14:22:49 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - [DBT STDOUT]
+[32m2025-05-15 14:22:49 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - [0m12:22:21  Running with dbt=1.9.4
+[0m12:22:23  Registered adapter: snowflake=1.9.4
+[0m12:22:24  Found 8 models, 43 data tests, 1 source, 590 macros
+[0m12:22:24  
+[0m12:22:24  Concurrency: 1 threads (target='prod')
+[0m12:22:24  
+[0m12:22:25  1 of 51 START sql view model dbt_antoniamaya_staging.stg_weather_current ....... [RUN]
+[0m12:22:26  1 of 51 OK created sql view model dbt_antoniamaya_staging.stg_weather_current .. [[32mSUCCESS 1[0m in 0.40s]
+[0m12:22:26  2 of 51 START sql view model dbt_antoniamaya_staging.stg_weather_forecast_daily  [RUN]
+[0m12:22:26  2 of 51 OK created sql view model dbt_antoniamaya_staging.stg_weather_forecast_daily  [[32mSUCCESS 1[0m in 0.27s]
+[0m12:22:26  3 of 51 START sql view model dbt_antoniamaya_staging.stg_weather_forecast_hourly  [RUN]
+[0m12:22:27  3 of 51 OK created sql view model dbt_antoniamaya_staging.stg_weather_forecast_hourly  [[32mSUCCESS 1[0m in 0.32s]
+[0m12:22:27  4 of 51 START test not_null_stg_weather_current_date_time ...................... [RUN]
+[0m12:22:27  4 of 51 PASS not_null_stg_weather_current_date_time ............................ [[32mPASS[0m in 0.27s]
+[0m12:22:27  5 of 51 START test not_null_stg_weather_current_extracted_at ................... [RUN]
+[0m12:22:27  5 of 51 PASS not_null_stg_weather_current_extracted_at ......................... [[32mPASS[0m in 0.24s]
+[0m12:22:27  6 of 51 START test not_null_stg_weather_current_humidity ....................... [RUN]
+[0m12:22:27  6 of 51 PASS not_null_stg_weather_current_humidity ............................. [[32mPASS[0m in 0.17s]
+[0m12:22:27  7 of 51 START test not_null_stg_weather_current_sky_condition .................. [RUN]
+[0m12:22:27  7 of 51 PASS not_null_stg_weather_current_sky_condition ........................ [[32mPASS[0m in 0.16s]
+[0m12:22:27  8 of 51 START test not_null_stg_weather_current_temperature .................... [RUN]
+[0m12:22:28  8 of 51 PASS not_null_stg_weather_current_temperature .......................... [[32mPASS[0m in 0.16s]
+[0m12:22:28  9 of 51 START test not_null_stg_weather_current_wind_speed ..................... [RUN]
+[0m12:22:28  9 of 51 PASS not_null_stg_weather_current_wind_speed ........................... [[32mPASS[0m in 0.16s]
+[0m12:22:28  10 of 51 START test not_null_stg_weather_forecast_daily_extracted_at ........... [RUN]
+[0m12:22:28  10 of 51 PASS not_null_stg_weather_forecast_daily_extracted_at ................. [[32mPASS[0m in 0.29s]
+[0m12:22:28  11 of 51 START test not_null_stg_weather_forecast_daily_forecast_date .......... [RUN]
+[0m12:22:28  11 of 51 PASS not_null_stg_weather_forecast_daily_forecast_date ................ [[32mPASS[0m in 0.30s]
+[0m12:22:28  12 of 51 START test not_null_stg_weather_forecast_daily_max_humidity ........... [RUN]
+[0m12:22:28  12 of 51 PASS not_null_stg_weather_forecast_daily_max_humidity ................. [[32mPASS[0m in 0.16s]
+[0m12:22:28  13 of 51 START test not_null_stg_weather_forecast_daily_max_temp ............... [RUN]
+[0m12:22:29  13 of 51 PASS not_null_stg_weather_forecast_daily_max_temp ..................... [[32mPASS[0m in 0.17s]
+[0m12:22:29  14 of 51 START test not_null_stg_weather_forecast_daily_min_humidity ........... [RUN]
+[0m12:22:29  14 of 51 PASS not_null_stg_weather_forecast_daily_min_humidity ................. [[32mPASS[0m in 0.18s]
+[0m12:22:29  15 of 51 START test not_null_stg_weather_forecast_daily_min_temp ............... [RUN]
+[0m12:22:29  15 of 51 PASS not_null_stg_weather_forecast_daily_min_temp ..................... [[32mPASS[0m in 0.18s]
+[0m12:22:29  16 of 51 START test not_null_stg_weather_forecast_daily_precipitation_probability  [RUN]
+[0m12:22:29  16 of 51 PASS not_null_stg_weather_forecast_daily_precipitation_probability .... [[32mPASS[0m in 0.19s]
+[0m12:22:29  17 of 51 START test not_null_stg_weather_forecast_daily_sky_condition .......... [RUN]
+[0m12:22:29  17 of 51 PASS not_null_stg_weather_forecast_daily_sky_condition ................ [[32mPASS[0m in 0.18s]
+[0m12:22:29  18 of 51 START test not_null_stg_weather_forecast_daily_uv_index ............... [RUN]
+[0m12:22:30  18 of 51 PASS not_null_stg_weather_forecast_daily_uv_index ..................... [[32mPASS[0m in 0.25s]
+[0m12:22:30  19 of 51 START test not_null_stg_weather_forecast_hourly_extracted_at .......... [RUN]
+[0m12:22:30  19 of 51 PASS not_null_stg_weather_forecast_hourly_extracted_at ................ [[32mPASS[0m in 0.45s]
+[0m12:22:30  20 of 51 START test not_null_stg_weather_forecast_hourly_forecast_date ......... [RUN]
+[0m12:22:31  20 of 51 PASS not_null_stg_weather_forecast_hourly_forecast_date ............... [[32mPASS[0m in 0.56s]
+[0m12:22:31  21 of 51 START test not_null_stg_weather_forecast_hourly_hour_index ............ [RUN]
+[0m12:22:31  21 of 51 PASS not_null_stg_weather_forecast_hourly_hour_index .................. [[32mPASS[0m in 0.48s]
+[0m12:22:31  22 of 51 START test not_null_stg_weather_forecast_hourly_humidity .............. [RUN]
+[0m12:22:32  22 of 51 PASS not_null_stg_weather_forecast_hourly_humidity .................... [[32mPASS[0m in 0.50s]
+[0m12:22:32  23 of 51 START test not_null_stg_weather_forecast_hourly_sky_condition ......... [RUN]
+[0m12:22:32  23 of 51 PASS not_null_stg_weather_forecast_hourly_sky_condition ............... [[32mPASS[0m in 0.54s]
+[0m12:22:32  24 of 51 START test not_null_stg_weather_forecast_hourly_temperature ........... [RUN]
+[0m12:22:33  24 of 51 PASS not_null_stg_weather_forecast_hourly_temperature ................. [[32mPASS[0m in 0.39s]
+[0m12:22:33  25 of 51 START test not_null_stg_weather_forecast_hourly_time_of_day ........... [RUN]
+[0m12:22:33  25 of 51 PASS not_null_stg_weather_forecast_hourly_time_of_day ................. [[32mPASS[0m in 0.44s]
+[0m12:22:33  26 of 51 START test not_null_stg_weather_forecast_hourly_wind_direction ........ [RUN]
+[0m12:22:33  26 of 51 PASS not_null_stg_weather_forecast_hourly_wind_direction .............. [[32mPASS[0m in 0.44s]
+[0m12:22:33  27 of 51 START test not_null_stg_weather_forecast_hourly_wind_speed ............ [RUN]
+[0m12:22:34  27 of 51 PASS not_null_stg_weather_forecast_hourly_wind_speed .................. [[32mPASS[0m in 0.51s]
+[0m12:22:34  28 of 51 START sql incremental model dbt_antoniamaya_marts.weather_current_metrics  [RUN]
+[0m12:22:36  28 of 51 OK created sql incremental model dbt_antoniamaya_marts.weather_current_metrics  [[32mSUCCESS 2[0m in 1.80s]
+[0m12:22:36  29 of 51 START sql incremental model dbt_antoniamaya_marts.weather_daily_summary  [RUN]
+[0m12:22:38  29 of 51 OK created sql incremental model dbt_antoniamaya_marts.weather_daily_summary  [[32mSUCCESS 0[0m in 1.76s]
+[0m12:22:38  30 of 51 START test dbt_utils_unique_combination_of_columns_weather_current_metrics_date_time__extracted_at  [RUN]
+[0m12:22:38  30 of 51 PASS dbt_utils_unique_combination_of_columns_weather_current_metrics_date_time__extracted_at  [[32mPASS[0m in 0.21s]
+[0m12:22:38  31 of 51 START test not_null_weather_current_metrics_date_time ................. [RUN]
+[0m12:22:38  31 of 51 PASS not_null_weather_current_metrics_date_time ....................... [[32mPASS[0m in 0.19s]
+[0m12:22:38  32 of 51 START test not_null_weather_current_metrics_extracted_at .............. [RUN]
+[0m12:22:38  32 of 51 PASS not_null_weather_current_metrics_extracted_at .................... [[32mPASS[0m in 0.12s]
+[0m12:22:38  33 of 51 START test not_null_weather_current_metrics_humidity .................. [RUN]
+[0m12:22:38  33 of 51 PASS not_null_weather_current_metrics_humidity ........................ [[32mPASS[0m in 0.13s]
+[0m12:22:38  34 of 51 START test not_null_weather_current_metrics_sky_condition ............. [RUN]
+[0m12:22:38  34 of 51 PASS not_null_weather_current_metrics_sky_condition ................... [[32mPASS[0m in 0.19s]
+[0m12:22:38  35 of 51 START test not_null_weather_current_metrics_temperature ............... [RUN]
+[0m12:22:39  35 of 51 PASS not_null_weather_current_metrics_temperature ..................... [[32mPASS[0m in 0.13s]
+[0m12:22:39  36 of 51 START test not_null_weather_current_metrics_wind_speed ................ [RUN]
+[0m12:22:39  36 of 51 PASS not_null_weather_current_metrics_wind_speed ...................... [[32mPASS[0m in 0.13s]
+[0m12:22:39  37 of 51 START test not_null_weather_daily_summary_avg_max_temp ................ [RUN]
+[0m12:22:39  37 of 51 PASS not_null_weather_daily_summary_avg_max_temp ...................... [[32mPASS[0m in 0.18s]
+[0m12:22:39  38 of 51 START test not_null_weather_daily_summary_avg_min_temp ................ [RUN]
+[0m12:22:39  38 of 51 PASS not_null_weather_daily_summary_avg_min_temp ...................... [[32mPASS[0m in 0.18s]
+[0m12:22:39  39 of 51 START test not_null_weather_daily_summary_avg_precipitation_prob ...... [RUN]
+[0m12:22:39  39 of 51 PASS not_null_weather_daily_summary_avg_precipitation_prob ............ [[32mPASS[0m in 0.15s]
+[0m12:22:39  40 of 51 START test not_null_weather_daily_summary_date ........................ [RUN]
+[0m12:22:39  40 of 51 PASS not_null_weather_daily_summary_date .............................. [[32mPASS[0m in 0.13s]
+[0m12:22:39  41 of 51 START test not_null_weather_daily_summary_highest_temp ................ [RUN]
+[0m12:22:39  41 of 51 PASS not_null_weather_daily_summary_highest_temp ...................... [[32mPASS[0m in 0.13s]
+[0m12:22:39  42 of 51 START test not_null_weather_daily_summary_last_updated ................ [RUN]
+[0m12:22:40  42 of 51 PASS not_null_weather_daily_summary_last_updated ...................... [[32mPASS[0m in 0.17s]
+[0m12:22:40  43 of 51 START test not_null_weather_daily_summary_lowest_temp ................. [RUN]
+[0m12:22:40  43 of 51 PASS not_null_weather_daily_summary_lowest_temp ....................... [[32mPASS[0m in 0.14s]
+[0m12:22:40  44 of 51 START test not_null_weather_daily_summary_max_precipitation_prob ...... [RUN]
+[0m12:22:40  44 of 51 PASS not_null_weather_daily_summary_max_precipitation_prob ............ [[32mPASS[0m in 0.13s]
+[0m12:22:40  45 of 51 START test not_null_weather_daily_summary_max_uv_index ................ [RUN]
+[0m12:22:40  45 of 51 PASS not_null_weather_daily_summary_max_uv_index ...................... [[32mPASS[0m in 0.14s]
+[0m12:22:40  46 of 51 START test not_null_weather_daily_summary_weather_conditions .......... [RUN]
+[0m12:22:40  46 of 51 PASS not_null_weather_daily_summary_weather_conditions ................ [[32mPASS[0m in 0.13s]
+[0m12:22:40  47 of 51 START test unique_weather_daily_summary_date .......................... [RUN]
+[0m12:22:40  47 of 51 PASS unique_weather_daily_summary_date ................................ [[32mPASS[0m in 0.16s]
+[0m12:22:40  48 of 51 START sql incremental model dbt_antoniamaya_marts.weather_daily_snapshot  [RUN]
+[0m12:22:42  48 of 51 OK created sql incremental model dbt_antoniamaya_marts.weather_daily_snapshot  [[32mSUCCESS 0[0m in 1.94s]
+[0m12:22:42  49 of 51 START sql incremental model dbt_antoniamaya_marts.weather_extremes .... [RUN]
+[0m12:22:44  49 of 51 OK created sql incremental model dbt_antoniamaya_marts.weather_extremes  [[32mSUCCESS 0[0m in 1.61s]
+[0m12:22:44  50 of 51 START sql incremental model dbt_antoniamaya_marts.weather_trends ...... [RUN]
+[0m12:22:46  50 of 51 OK created sql incremental model dbt_antoniamaya_marts.weather_trends . [[32mSUCCESS 0[0m in 2.47s]
+[0m12:22:46  51 of 51 START test not_null_weather_extremes_highest_uv_day ................... [RUN]
+[0m12:22:47  51 of 51 PASS not_null_weather_extremes_highest_uv_day ......................... [[32mPASS[0m in 0.75s]
+[0m12:22:47  
+[0m12:22:47  Finished running 5 incremental models, 43 data tests, 3 view models in 0 hours 0 minutes and 23.40 seconds (23.40s).
+[0m12:22:47  
+[0m12:22:47  [32mCompleted successfully[0m
+[0m12:22:47  
+[0m12:22:47  Done. PASS=51 WARN=0 ERROR=0 SKIP=0 TOTAL=51
+
+[32m2025-05-15 14:22:49 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - [DBT STDERR]
+[32m2025-05-15 14:22:49 +0200[0m - dagster - [34mINFO[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt
+[32m2025-05-15 14:22:49 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - 13254 - run_dbt - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+[32m2025-05-15 14:22:49 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - run_dbt - Writing file at: /Users/toniamayaobrador/dagster/weather_pipeline/.tmp_dagster_home_nvknkxm0/storage/4d872dd4-fe6a-488a-96a4-2ccd3c50affc/run_dbt/result using PickledObjectFilesystemIOManager...
+[32m2025-05-15 14:22:49 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - 13254 - run_dbt - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+[32m2025-05-15 14:22:49 +0200[0m - dagster - [34mDEBUG[0m - airbyte_then_dbt - 4d872dd4-fe6a-488a-96a4-2ccd3c50affc - 13254 - run_dbt - STEP_SUCCESS - Finished execution of step "run_dbt" in 29.85s.
