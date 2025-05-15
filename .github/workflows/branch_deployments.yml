@@ -1,4 +1,8 @@
 name: Serverless Branch Deployments
+
+permissions:
+  pull-requests: write
+  
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
